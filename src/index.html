@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Tamagotchi</title>
-    </head>
-    <body>
-      <div id="create">
-        <form>
-          <input id="name" type="text" name="name">
-          <label for="name">Name the Tamagotchi</label>
-          <button type="submit" name="button">Name it!</button>
-        </form>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <title>Tamagotchi</title>
+</head>
+<body>
+  <div id="create">
+    <form>
+      <input id="name" type="text" name="name">
+      <label for="name">Name the Tamagotchi</label>
+      <button type="submit" name="button">Name it!</button>
+    </form>
+  </div>
 
+  <div id="game">
+    <div id="image">
+      <img src="../src/css/mon3_idle.gif" alt="">
+    </div>
+    <div id="careFor">
+      <button id="food" type="button" name="food">Food</button>
+      <button id="play" type="button" name="play">Play</button>
+      <button id="sleep" type="button" name="sleep">Sleep</button>
+    </div>
+  </div>
 
-      <div id="game">
-        <div id="image">
-          <img src="../src/css/mon3_idle.gif" alt="">
-        </div>
-        <button id="food" type="button" name="food">Food</button>
-        <button id="play" type="button" name="play">Play</button>
-        <button id="sleep" type="button" name="sleep">Sleep</button>
-      </div>
-      <div id="stats">
-        <h3 id="hungerStats">Hunger:</h3>
-        <h3 id="ageStats">Age:</h3>
-        <h3 id="playStats">Play:</h3>
-        <h3 id="sleepStats">Sleep:</h3>
-        <h3 id="pooStats">Poo:</h3>
-      </div>
-    </body>
+  <div id="stats">
+    <h3 id="hungerStats">Hunger:</h3>
+    <h3 id="ageStats">Age:</h3>
+    <h3 id="playStats">Play:</h3>
+    <h3 id="sleepStats">Sleep:</h3>
+    <h3 id="pooStats">Poo:</h3>
+  </div>
+</body>
 </html>
