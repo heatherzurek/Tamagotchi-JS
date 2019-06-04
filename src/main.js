@@ -20,8 +20,8 @@ $(document).ready(function() {
     e.preventDefault();
     let newName = $("#name").val();
     let yourTamagotchi = new Tamagotchi(newName);
-    yourTamagotchi.createMe();
-    let interval = setInterval(yourTamagotchi.update, 1000);
+    yourTamagotchi.createMe.bind(yourTamagotchi);
+    let interval = setInterval(yourTamagotchi.createMe.bind(yourTamagotchi), 3000);
 
     $("#hungerStats").html("Hunger: " + yourTamagotchi.hunger);
     $("#ageStats").html("Age: " + yourTamagotchi.age);

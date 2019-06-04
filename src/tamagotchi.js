@@ -6,28 +6,28 @@ class Tamagotchi {
     this.play = 20;
     this.sleep = 15;
     this.poo = 1;
-    this.alive = true;
+    // this.alive = true;
   }
 
   createMe() {
     // setInterval(() => {
       this.age++;
-      this.hunger-=2;
-      this.play-=5;
-      this.sleep-=4;
-      console.log(this);
+      this.hunger--;
+      this.play--;
+      this.sleep--;
     // }, 5000);
-    this.update();
+      this.update();
   }
 
   update() {
+    console.log(this);
+    // console.log(this.sleep);
+    $("#hungerStats").load("Hunger: " + this.hunger);
     console.log(this.hunger);
-    console.log(this.sleep);
-    $("#hungerStats").html("Hunger: " + this.hunger);
-    $("#ageStats").html("Age: " + this.age);
-    $("#playStats").html("Play: " + this.play);
-    $("#sleepStats").html("Sleep: " + this.sleep);
-    $("#pooStats").html("Poo: " + this.poo);
+    $("#ageStats").load("Age: " + this.age);
+    $("#playStats").load("Play: " + this.play);
+    $("#sleepStats").load("Sleep: " + this.sleep);
+    $("#pooStats").load("Poo: " + this.poo);
     //clearInterval(this);
   };
 
@@ -35,12 +35,13 @@ class Tamagotchi {
     this.hunger+= 5;
     setTimeout(() => {
       this.poo--;
-    }, 1000);
+    }, 3000);
 
     if(this.poo === 0) {
       this.poo++;
     }
   }
+  //if your tamagotchi is -hunger and -sleep, return "your tamagotchi has died"
 
   playWithMe() {
     this.play+= 5;
