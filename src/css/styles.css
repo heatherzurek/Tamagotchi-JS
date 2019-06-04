@@ -8,3 +8,8 @@ body {
 #game {
   display: none;
 }
+
+
+#dead {
+  display: none;
+}

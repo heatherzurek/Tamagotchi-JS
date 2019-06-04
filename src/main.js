@@ -8,38 +8,55 @@ import './css/styles.css';
 $(document).ready(function() {
   $("#create").on('submit', function(e){
     e.preventDefault();
+
     let newName = $("#name").val();
-    let yourTamagotchi = new Tamagotchi(newName);
-    yourTamagotchi.createMe.bind(yourTamagotchi);
-    let interval = setInterval(yourTamagotchi.createMe.bind(yourTamagotchi), 2500);
+    // const testName = parseInt($("#name").val());
 
-    // $("#hungerStats").html("Hunger: " + yourTamagotchi.hunger);
-    // $("#ageStats").html("Age: " + yourTamagotchi.age);
-    // $("#playStats").html("Play: " + yourTamagotchi.play);
-    // $("#sleepStats").html("Sleep: " + yourTamagotchi.sleep);
-    // $("#pooStats").html("Poo: " + yourTamagotchi.poo);
-
-    $("#food").on("click", () => {
-      yourTamagotchi.feedMe();
-      yourTamagotchi.createMe();
-
-    })
-
-    $("#play").on("click", () => {
-      yourTamagotchi.playWithMe();
-      yourTamagotchi.createMe();
-
-    })
-    $("#sleep").on("click", () => {
-      yourTamagotchi.goToSleep();
-      yourTamagotchi.createMe();
-
-    })
-
-    // let isTamaDeed = this.deathToTamagotchi;
-    // while(!isTamaDeed){
-    //   $("#dead").html(isTamaDeed);
+    // function checkName(newName) {
+    //   if (newName.contains('!')){
+    //     return new Error("Do not use '!'");
+    //   }
     // }
-  });
+    //
+    // try {
+    //   const isNameValid = checkName(newName);
+    //   if (isNameValid instanceof Error){
+    //     console.error(isNumberValid.message);
+    //     throw RangeError("Do not use '!'");
+    //   }else {
+    //     console.log("Try successful, no catch needed!");
+    //   }
+    // } catch(error) {
+    //   console.error(`Warning!! Error: ${error.message}`);
+    // }
+
+
+let yourTamagotchi = new Tamagotchi(newName);
+yourTamagotchi.createMe.bind(yourTamagotchi);
+let interval = setInterval(yourTamagotchi.createMe.bind(yourTamagotchi), 2000);
+let updateInterval = setInterval(yourTamagotchi.update.bind(yourTamagotchi), 500);
+
+
+$("#food").on("click", () => {
+  yourTamagotchi.feedMe();
+  // yourTamagotchi.createMe();
+})
+
+$("#play").on("click", () => {
+  yourTamagotchi.playWithMe();
+  // yourTamagotchi.createMe();
+
+})
+$("#sleep").on("click", () => {
+  yourTamagotchi.goToSleep();
+  // yourTamagotchi.createMe();
+
+})
+
+// let isTamaDeed = this.deathToTamagotchi;
+// while(!isTamaDeed){
+  //   $("#dead").html(isTamaDeed);
+  // }
+});
 
 });

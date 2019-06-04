@@ -1,20 +1,24 @@
 class Tamagotchi {
   constructor(name) {
     this.name = name;
-    this.hunger = 25;
+    this.hunger = 5;
     this.age = 0;
-    this.play = 20;
-    this.sleep = 15;
+    this.play = 5;
+    this.sleep = 5;
     this.poo = 1;
-    // this.alive = true;
+    this.alive = true;
   }
 
   createMe() {
-      this.age+=.1;
-      this.hunger--;
-      this.play--;
-      this.sleep--;
-      this.update();
+    this.age+=.1;
+    this.hunger--;
+    this.play--;
+    this.sleep--;
+    this.update();
+    if(this.hunger <= 0 || this.sleep <= 0 || this.play <= 0 || this.age >= 20){
+      this.alive = false;
+      // this.deathToTamagotchi();
+    }
   }
 
   update() {
@@ -26,19 +30,26 @@ class Tamagotchi {
     $("#myName").html(`My name is ${this.name}!`)
     $("#create").hide()
     $("#game").show()
+
+    if(this.alive == false) {
+      $("#dead").show()
+      $("#game").hide()
+      $("#stats").hide()
+
+
+    }
   };
 
   feedMe() {
     this.hunger+= 5;
     setTimeout(() => {
       this.poo--;
-    }, 2500);
+    }, 1500);
 
     if(this.poo === 0) {
       this.poo++;
     }
   }
-  //if your tamagotchi is -hunger and -sleep, return "your tamagotchi has died"
 
   playWithMe() {
     this.play+= 5;
@@ -53,12 +64,12 @@ class Tamagotchi {
     this.poo+= 1;
   }
 
-  // deathToTamagotchi() {
-  //   if(this.hunger === 0 || this.sleep === 0 || this.play === 0 || this.age === 20){
-  //     return "You have died";
-  //   }else{
-  //   false;
-  // }
-};
+  deathToTamagotchi() {
+    console.log("die");
+    return "You have died";
+  }
 }
+
+//if poo = 1.. "clean up poo"
+
 export default Tamagotchi;
