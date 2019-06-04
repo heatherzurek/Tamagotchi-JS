@@ -5,47 +5,41 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 
-
-
-// function attachListeners() {
-//   $("#careFor").on("click", "button", function() {
-//     Tamagotchi.feedMe();
-//     Tamagotchi.playWithMe();
-//     Tamagotchi.getRest();
-//   });
-// }
 $(document).ready(function() {
-  // attachListeners();
   $("#create").on('submit', function(e){
     e.preventDefault();
     let newName = $("#name").val();
     let yourTamagotchi = new Tamagotchi(newName);
     yourTamagotchi.createMe.bind(yourTamagotchi);
-    let interval = setInterval(yourTamagotchi.createMe.bind(yourTamagotchi), 3000);
+    let interval = setInterval(yourTamagotchi.createMe.bind(yourTamagotchi), 2500);
 
-    $("#hungerStats").html("Hunger: " + yourTamagotchi.hunger);
-    $("#ageStats").html("Age: " + yourTamagotchi.age);
-    $("#playStats").html("Play: " + yourTamagotchi.play);
-    $("#sleepStats").html("Sleep: " + yourTamagotchi.sleep);
-    $("#pooStats").html("Poo: " + yourTamagotchi.poo);
+    // $("#hungerStats").html("Hunger: " + yourTamagotchi.hunger);
+    // $("#ageStats").html("Age: " + yourTamagotchi.age);
+    // $("#playStats").html("Play: " + yourTamagotchi.play);
+    // $("#sleepStats").html("Sleep: " + yourTamagotchi.sleep);
+    // $("#pooStats").html("Poo: " + yourTamagotchi.poo);
 
     $("#food").on("click", () => {
       yourTamagotchi.feedMe();
       yourTamagotchi.createMe();
-      //clearInterval(interval);
-      $("#hungerStats").html("Hunger: " + yourTamagotchi.hunger);
 
-      })
-      $("#play").on("click", () => {
-        yourTamagotchi.playWithMe();
-        yourTamagotchi.createMe();
-        //clearInterval(interval);
-        $("#playStats").html("Playfulness: " + yourTamagotchi.play);
     })
+
+    $("#play").on("click", () => {
+      yourTamagotchi.playWithMe();
+      yourTamagotchi.createMe();
+
+    })
+    $("#sleep").on("click", () => {
+      yourTamagotchi.goToSleep();
+      yourTamagotchi.createMe();
+
+    })
+
+    // let isTamaDeed = this.deathToTamagotchi;
+    // while(!isTamaDeed){
+    //   $("#dead").html(isTamaDeed);
+    // }
   });
-
-
-
-
 
 });

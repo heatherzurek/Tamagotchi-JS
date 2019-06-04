@@ -10,32 +10,29 @@ class Tamagotchi {
   }
 
   createMe() {
-    // setInterval(() => {
-      this.age++;
+      this.age+=.1;
       this.hunger--;
       this.play--;
       this.sleep--;
-    // }, 5000);
       this.update();
   }
 
   update() {
-    console.log(this);
-    // console.log(this.sleep);
-    $("#hungerStats").load("Hunger: " + this.hunger);
-    console.log(this.hunger);
-    $("#ageStats").load("Age: " + this.age);
-    $("#playStats").load("Play: " + this.play);
-    $("#sleepStats").load("Sleep: " + this.sleep);
-    $("#pooStats").load("Poo: " + this.poo);
-    //clearInterval(this);
+    $("#hungerStats").html("My hunger level is... " + this.hunger);
+    $("#playStats").html("Playfulness: " + this.play);
+    $("#ageStats").html("Age: " + Math.floor(this.age));
+    $("#sleepStats").html(`Sleepiness: ${this.sleep}`);
+    $("#pooStats").html("Poo: " + this.poo);
+    $("#myName").html(`My name is ${this.name}!`)
+    $("#create").hide()
+    $("#game").show()
   };
 
   feedMe() {
     this.hunger+= 5;
     setTimeout(() => {
       this.poo--;
-    }, 3000);
+    }, 2500);
 
     if(this.poo === 0) {
       this.poo++;
@@ -47,7 +44,7 @@ class Tamagotchi {
     this.play+= 5;
   }
 
-  getRest() {
+  goToSleep() {
     this.sleep+= 5;
 
   }
@@ -55,6 +52,13 @@ class Tamagotchi {
   cleanUpPoo() {
     this.poo+= 1;
   }
-}
 
+  // deathToTamagotchi() {
+  //   if(this.hunger === 0 || this.sleep === 0 || this.play === 0 || this.age === 20){
+  //     return "You have died";
+  //   }else{
+  //   false;
+  // }
+};
+}
 export default Tamagotchi;

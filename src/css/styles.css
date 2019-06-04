@@ -1,3 +1,10 @@
 body {
     background-color: #7FDBFF;
+    margin-left: 30%;
+    margin-top: 20%;
+}
+
+
+#game {
+  display: none;
 }
